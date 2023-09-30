@@ -1,23 +1,29 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import { useLocation } from 'react-router-dom'
-import prisonmike from "../images/prisonmike.png"
 
 const UserDetails = (props) => {
     const loaction = useLocation();
     const userName = loaction.state.name;
     const userEmail = loaction.state.email;
+    const userImg = loaction.state.image;
+    const userAge = loaction.state.age;
+    const userPhone = loaction.state.phone;
+    const userGender = loaction.state.location;
     
     return (
         <div className="main"> 
             <div className="container">
             <div className="ui card centered">
                 <div className="image">
-                    <img src={prisonmike} alt="user" />
+                    <img src={userImg} alt="user" />
                 </div>
                 <div className="content">
-                    <div className="header">{userName}</div>
+                    <div className="header"><strong>{userName}</strong></div>
+                    <div className="discription">{userGender}</div>
                     <div className="discription">{userEmail}</div>
+                    <div className="discription">Phone: {userPhone}</div>
+                    <div className="discription">Age: {userAge}</div>
                 </div>
             </div>
             <div className="ui card centered">
