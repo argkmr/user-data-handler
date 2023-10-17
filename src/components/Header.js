@@ -2,10 +2,15 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="ui header" style={{marginTop:"20px"}}> 
-      <div className="ui card centered">
-        <h1 className="center aligned content">Contact Manger</h1>
-      </div>
+    <div style={{
+        marginTop:"20px", 
+        height:"100px", 
+        display:"flex", 
+        alignItems:"center", 
+        justifyContent:"center",
+        border: "1px solid white",
+        borderRadius:"50px"}}> 
+      <h1 style={{color:"#a34cd9", textDecoration:"none", fontWeight:"bold"}}>USER-DATA HANDLER</h1>
     </div>
 
   );

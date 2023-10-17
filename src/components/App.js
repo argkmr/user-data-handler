@@ -10,7 +10,7 @@ function App() {
   
   return (
 
-    <div className="ui container">
+    <div className="ui container" style={{backgroundImage:"../images/prisonmike.png"}}>
 
       <Router>
         <Header />

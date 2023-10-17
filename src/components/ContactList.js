@@ -3,11 +3,13 @@ import axios from "axios";
 import { v4 as uuidv4 } from 'uuid';
 import ContactCard from "./ContactCard";
 
+const LOCAL_STORAGE_KEY = "userInfo";
+
 const ContactList = (props) => {
-    const LOCAL_STORAGE_KEY = "userInfo";
+
     const [userInfo, setUserInfo] = useState(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? []);
     const [searchTerm, setSearchTerm] = useState("");
-    const inputEl = useRef("");
+    const inputEl = useRef(null);
     const [searchResults, setSearchResults] = useState([]);
 
     const fetchData = () => {
@@ -72,24 +74,28 @@ const ContactList = (props) => {
 
     return (
         <div className="main">
-            <div style={{ display: "flex" }}>
-                <h2 style={{ marginRight: "auto" }}>Contact List</h2>
-                <div className="ui search">
-                    <div className="ui icon input">
-                        <input
-                            ref={inputEl}
-                            type="text"
-                            placeholder="Search"
-                            className="prompt"
-                            value={searchTerm}
-                            onChange={searchHandler}
-                        />
-                        <i className="search icon"></i>
+            <div>
+                <h2 style={{ display:"flex", alignItems:"center", justifyContent:"center", color:"grey", marginTop:"30px", fontWeight:"bold"}}>Contact List</h2>
+                <div style={{ display: "flex", alignItems:"center", justifyContent:"space-between", marginBottom:"25px"}}>
+                    <button className="ui button" onClick={fetchData} style={{ display: "inline", borderRadius:"20px", backgroundColor:"#b64df7", color:"white" }}>Click to Add Contact</button>
+                    <div className="ui search">
+                        <div className="ui icon input">
+                            <input
+                                style={{ backgroundColor: "#443355" }}
+                                ref={inputEl}
+                                type="text"
+                                placeholder="Search"
+                                className="prompt"
+                                value={searchTerm}
+                                onChange={searchHandler}
+                            />
+                            <i className="search icon"></i>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
-            <button className="ui button blue" onClick={fetchData}>Click to Add Contact</button>
             <div className="ui celled list">{renderContactList()}</div>
         </div>
     );

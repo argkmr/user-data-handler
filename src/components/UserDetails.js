@@ -12,7 +12,8 @@ const UserDetails = (props) => {
     const userGender = loaction.state.location;
     
     return (
-        <div className="main"> 
+        
+        <div className="main" style={{marginTop:"8%"}}> 
             <div className="container">
             <div className="ui card centered">
                 <div className="image">
@@ -31,6 +32,7 @@ const UserDetails = (props) => {
                 </div>
             </div>
         </div>
+      
     );
 }
 
